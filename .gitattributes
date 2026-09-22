@@ -1,0 +1,8 @@
+# Prevent line-ending normalization from corrupting binary files
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.woff binary
+*.woff2 binary

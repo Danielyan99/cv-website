@@ -1,9 +1,11 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Contact } from "./sections/Contact";
 import { Experience } from "./sections/Experience";
 import { Hero } from "./sections/Hero";
 import { Projects } from "./sections/Projects";
 import { Skills } from "./sections/Skills";
+import { WorkWithMe } from "./sections/WorkWithMe";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Experience />
         <Skills />
         <Projects />
+        <WorkWithMe />
+        <Contact />
       </main>
       <Footer />
     </div>

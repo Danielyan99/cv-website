@@ -1,0 +1,98 @@
+.section {
+  padding-block: var(--space-12);
+}
+
+.timeline {
+  border-left: 1px solid var(--color-border-strong);
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.card {
+  position: relative;
+  padding-left: var(--space-6);
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dot {
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-accent);
+}
+
+.dotCurrent {
+  background: var(--color-accent);
+}
+
+.dates {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-1);
+}
+
+.roleTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 var(--space-1);
+}
+
+.company {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.bullets {
+  margin: var(--space-2) 0 var(--space-3);
+  padding-left: 1.1rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  border: 0.5px solid var(--color-border-strong);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-accent);
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  text-decoration: underline;
+}

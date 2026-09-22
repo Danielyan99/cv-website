@@ -1,5 +1,6 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Experience } from "./sections/Experience";
 import { Hero } from "./sections/Hero";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <main id="main-content">
         <Hero />
+        <Experience />
       </main>
       <Footer />
     </div>

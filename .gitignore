@@ -17,3 +17,11 @@ cv-source/
 *.pdf
 *.docx
 *.doc
+# Exception: the public résumé this site links to and serves
+!public/resume.pdf
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

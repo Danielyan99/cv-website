@@ -1,0 +1,14 @@
+export const hero = {
+  eyebrow: "Yerevan, Armenia · UTC+4 · full overlap with US Eastern and EU afternoons",
+  titleLine1: "Senior front-end engineer",
+  titleLine2: "building real-time React interfaces",
+  summary:
+    "5 years in React and TypeScript. I work on a gaming platform with 100,000+ daily users, and I designed the Claude Code workflow our team ships with.",
+  availability: "Open to full-time, part-time, freelance and contract remote work.",
+};
+
+export const stats = [
+  { value: "5", label: "years in React and TypeScript" },
+  { value: "100k+", label: "daily users on my platform" },
+  { value: "~4wks → ~1wk", label: "per game, after my AI workflow setup" },
+];

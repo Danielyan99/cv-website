@@ -1,0 +1,88 @@
+.hero {
+  padding-block: var(--space-16) var(--space-12);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-4);
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.2;
+  max-width: 32rem;
+  margin: 0 0 var(--space-4);
+}
+
+.titleMuted {
+  color: var(--color-text-secondary);
+}
+
+.summary {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  max-width: 34rem;
+  margin: 0 0 var(--space-2);
+}
+
+.availability {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-6);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin: 0 0 var(--space-8);
+}
+
+.buttonPrimary,
+.buttonSecondary {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.buttonPrimary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.buttonSecondary {
+  border: 0.5px solid var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.stat {
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.statValue {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 var(--space-1);
+}
+
+.statLabel {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}

@@ -1,5 +1,6 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Hero } from "./sections/Hero";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       </a>
       <Header />
       <main id="main-content">
-        <p className="container">Sections are added next.</p>
+        <Hero />
       </main>
       <Footer />
     </div>

@@ -7,8 +7,21 @@ export const hero = {
   availability: "Open to full-time, part-time, freelance and contract remote work.",
 };
 
-export const stats = [
-  { value: "5", label: "years in React and TypeScript" },
-  { value: "100k+", label: "daily users on my platform" },
+export interface Stat {
+  value: string;
+  label: string;
+  /** Present only for stats worth animating as a count-up on scroll-in. */
+  countTo?: number;
+  suffix?: string;
+}
+
+export const stats: Stat[] = [
+  { value: "5", label: "years in React and TypeScript", countTo: 5 },
+  {
+    value: "100k+",
+    label: "daily users on my platform",
+    countTo: 100,
+    suffix: "k+",
+  },
   { value: "~4wks → ~1wk", label: "per game, after my AI workflow setup" },
 ];

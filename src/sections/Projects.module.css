@@ -16,11 +16,14 @@
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: border-color var(--duration-fast) var(--ease-out);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 }
 
 a.card:hover {
   border-color: var(--color-border-strong);
+  transform: translateY(-2px);
 }
 
 .title {

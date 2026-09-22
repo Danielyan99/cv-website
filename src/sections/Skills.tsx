@@ -1,3 +1,4 @@
+import { Reveal } from "../components/Reveal";
 import { skillGroups } from "../content/skills";
 import styles from "./Skills.module.css";
 
@@ -8,17 +9,19 @@ export function Skills() {
         Skills
       </h2>
       <div className={styles.groups}>
-        {skillGroups.map((group) => (
-          <div className={styles.group} key={group.label}>
-            <h3 className={styles.groupLabel}>{group.label}</h3>
-            <ul className={styles.items}>
-              {group.items.map((item) => (
-                <li className={styles.chip} key={item}>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        {skillGroups.map((group, index) => (
+          <Reveal delay={index * 80} key={group.label}>
+            <div className={styles.group}>
+              <h3 className={styles.groupLabel}>{group.label}</h3>
+              <ul className={styles.items}>
+                {group.items.map((item) => (
+                  <li className={styles.chip} key={item}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         ))}
       </div>
     </section>

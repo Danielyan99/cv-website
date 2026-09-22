@@ -1,6 +1,30 @@
-import { hero, stats } from "../content/hero";
+import { Reveal } from "../components/Reveal";
+import { hero, stats, type Stat } from "../content/hero";
+import { useCountUp } from "../hooks/useCountUp";
+import { useReducedMotion } from "../hooks/useReducedMotion";
 import { assetUrl } from "../lib/assetUrl";
 import styles from "./Hero.module.css";
+
+function StatCard({ stat, delay }: { stat: Stat; delay: number }) {
+  const reducedMotion = useReducedMotion();
+
+  return (
+    <Reveal delay={delay}>
+      {(revealed) => (
+        <div className={styles.stat}>
+          <StatValue stat={stat} active={revealed} animate={!reducedMotion} />
+          <p className={styles.statLabel}>{stat.label}</p>
+        </div>
+      )}
+    </Reveal>
+  );
+}
+
+function StatValue({ stat, active, animate }: { stat: Stat; active: boolean; animate: boolean }) {
+  const count = useCountUp(stat.countTo ?? 0, active, animate);
+  const display = stat.countTo != null ? `${count}${stat.suffix ?? ""}` : stat.value;
+  return <p className={styles.statValue}>{display}</p>;
+}
 
 export function Hero() {
   return (
@@ -22,11 +46,8 @@ export function Hero() {
         </a>
       </div>
       <div className={styles.stats}>
-        {stats.map((stat) => (
-          <div className={styles.stat} key={stat.label}>
-            <p className={styles.statValue}>{stat.value}</p>
-            <p className={styles.statLabel}>{stat.label}</p>
-          </div>
+        {stats.map((stat, index) => (
+          <StatCard stat={stat} delay={index * 80} key={stat.label} />
         ))}
       </div>
     </section>

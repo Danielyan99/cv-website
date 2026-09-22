@@ -2,6 +2,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Experience } from "./sections/Experience";
 import { Hero } from "./sections/Hero";
+import { Skills } from "./sections/Skills";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main id="main-content">
         <Hero />
         <Experience />
+        <Skills />
       </main>
       <Footer />
     </div>

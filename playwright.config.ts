@@ -10,11 +10,13 @@ export default defineConfig({
   fullyParallel: true,
   reporter: "list",
   use: {
-    baseURL: "http://localhost:4173",
+    // `vite preview` serves under the production base (/cv-website/, see
+    // vite.config.ts) so this must match, not just the bare origin.
+    baseURL: "http://localhost:4173/cv-website/",
   },
   webServer: {
     command: "npm run build && npm run preview -- --port 4173",
-    port: 4173,
+    url: "http://localhost:4173/cv-website/",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },

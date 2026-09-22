@@ -1,4 +1,5 @@
 import { hero, stats } from "../content/hero";
+import { assetUrl } from "../lib/assetUrl";
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -13,7 +14,7 @@ export function Hero() {
       <p className={styles.summary}>{hero.summary}</p>
       <p className={styles.availability}>{hero.availability}</p>
       <div className={styles.actions}>
-        <a href="/resume.pdf" className={styles.buttonPrimary}>
+        <a href={assetUrl("resume.pdf")} className={styles.buttonPrimary}>
           Download CV
         </a>
         <a href="#contact" className={styles.buttonSecondary}>

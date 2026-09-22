@@ -4,4 +4,5 @@ export const profile = {
   email: "danielyan.narek99@gmail.com",
   github: "https://github.com/Danielyan99",
   linkedin: "https://linkedin.com/in/danielyannar",
+  website: "https://danielyan99.github.io/cv-website/",
 };

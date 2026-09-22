@@ -45,7 +45,7 @@ export const experience: Role[] = [
     ],
     details: [
       "Started as an intern and moved to a full-time role on production projects.",
-      "iPlanner (Sweden): built the front-end with React and Next.js, for a platform where customers design a house and negotiate changes with a construction company.",
+      "House-planning platform (Sweden): built the front-end with React and Next.js, for a platform where customers design a house and negotiate changes with a construction company.",
       "Learning platform (USA): built student-side features (video lessons, progress tracking) with React and Recoil, and fixed production bugs.",
       "Hotel advertising analytics panel (USA): built charts, reports and an admin panel with Vue, Vuex and Google Charts, full-stack for about 5 months, using Firebase (Firestore, Storage).",
       "Worked directly with clients in Sweden and the US across time zones. Mentored a junior developer.",

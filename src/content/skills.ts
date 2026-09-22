@@ -23,7 +23,7 @@ export const skillGroups: SkillGroup[] = [
     items: ["Node.js", "NestJS", "MongoDB", "Firebase", "REST", "GraphQL"],
   },
   {
-    label: "Testing (learning)",
+    label: "Testing",
     items: ["Vitest", "React Testing Library", "Playwright", "MSW"],
   },
   {

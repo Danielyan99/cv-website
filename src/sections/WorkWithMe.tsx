@@ -15,7 +15,7 @@ export function WorkWithMe() {
         <div className={styles.services}>
           {services.map((service) => (
             <div key={service.title}>
-              <p className={styles.serviceTitle}>{service.title}</p>
+              <h3 className={styles.serviceTitle}>{service.title}</h3>
               <p className={styles.serviceDescription}>{service.description}</p>
             </div>
           ))}

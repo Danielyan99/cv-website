@@ -21,13 +21,13 @@ export function Projects() {
               rel="noreferrer"
               key={project.id}
             >
-              <p className={styles.title}>{project.title}</p>
+              <h3 className={styles.title}>{project.title}</h3>
               <p className={styles.description}>{project.description}</p>
               <span className={styles.link}>View on GitHub ↗</span>
             </a>
           ) : (
             <div className={styles.card} key={project.id}>
-              <p className={styles.title}>{project.title}</p>
+              <h3 className={styles.title}>{project.title}</h3>
               <p className={styles.description}>{project.description}</p>
               <span className={styles.status}>In progress</span>
             </div>

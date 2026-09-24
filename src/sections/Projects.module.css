@@ -21,9 +21,26 @@
     transform var(--duration-fast) var(--ease-out);
 }
 
-a.card:hover {
+a.card:hover,
+.withLinks:hover,
+.withLinks:focus-within {
   border-color: var(--color-border-strong);
   transform: translateY(-2px);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.links .link {
+  text-decoration: none;
+}
+
+.links .link:hover,
+.links .link:focus-visible {
+  text-decoration: underline;
 }
 
 .title {

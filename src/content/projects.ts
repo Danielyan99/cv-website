@@ -18,15 +18,17 @@ export const projects: Project[] = [
     demoUrl: "https://live-sports-scoreboard-seven.vercel.app",
   },
   {
+    id: "bank-expense",
+    title: "Bank statement analyzer",
+    description:
+      "Rules sort 87% of transactions; an LLM only sees the leftovers, and every decision is explained.",
+    url: "https://github.com/Danielyan99/bank-expense-analyzer",
+    demoUrl: "https://bank-expense-analyzer-web.vercel.app",
+  },
+  {
     id: "this-site",
     title: "This website",
     description: "Tests, accessibility and Lighthouse scores in the open.",
     url: "https://github.com/Danielyan99/cv-website",
-  },
-  {
-    id: "ai-workflow",
-    title: "AI workflow case study",
-    description: "The Claude Code + Jira + GitLab setup, and what it got wrong.",
-    url: null,
   },
 ];

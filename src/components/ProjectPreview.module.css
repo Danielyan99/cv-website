@@ -1,0 +1,100 @@
+.frame {
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(92, 225, 198, 0.08), transparent 60%),
+    #0e1115;
+  border-bottom: 0.5px solid var(--color-border);
+  overflow: hidden;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.row {
+  fill: var(--color-surface);
+  stroke: var(--color-border-strong);
+  stroke-width: 0.5;
+}
+
+.team {
+  fill: var(--color-text-primary);
+  font: 600 11px var(--font-sans);
+}
+
+.score {
+  fill: var(--color-text-primary);
+  font: 600 13px var(--font-mono);
+}
+
+.meta {
+  fill: var(--color-text-muted);
+  font: 400 9.5px var(--font-sans);
+}
+
+.mono {
+  fill: var(--color-text-secondary);
+  font: 500 9px var(--font-mono);
+}
+
+.chip {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 0.75;
+}
+
+.live {
+  fill: var(--color-accent);
+}
+
+.idle {
+  fill: var(--color-text-muted);
+}
+
+/* The first match "just scored": its row pulses once in a while, like the real app. */
+.flash .row {
+  animation: flash 3.2s var(--ease-out) infinite;
+}
+
+@keyframes flash {
+  0%,
+  70%,
+  100% {
+    stroke: var(--color-border-strong);
+  }
+  80% {
+    stroke: var(--color-accent);
+  }
+}
+
+.rules {
+  fill: var(--color-accent);
+}
+
+.ai,
+.aiLabel {
+  fill: #b9a7ff;
+}
+
+.aiLabel {
+  font: 600 10px var(--font-sans);
+}
+
+/* Category colours from the analyzer itself (validated palette). */
+.c1 {
+  fill: #3987e5;
+}
+
+.c2 {
+  fill: #199e70;
+}
+
+.c3 {
+  fill: #d55181;
+}
+
+.c4 {
+  fill: #d95926;
+}

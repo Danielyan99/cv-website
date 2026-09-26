@@ -2,57 +2,207 @@
   padding-block: var(--space-12);
 }
 
-.grid {
+.featuredGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-4);
 }
 
+.otherGrid {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* ------------------------------------------------------------ card shell */
 .card {
   background: var(--color-surface);
   border: 0.5px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-4);
-  text-decoration: none;
-  color: inherit;
-  display: block;
   transition:
     border-color var(--duration-fast) var(--ease-out),
     transform var(--duration-fast) var(--ease-out);
 }
 
-a.card:hover,
-.withLinks:hover,
-.withLinks:focus-within {
+.card:hover,
+.card:focus-within {
   border-color: var(--color-border-strong);
   transform: translateY(-2px);
 }
 
-.links {
+.featured {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.featured:hover svg,
+.featured:focus-within svg {
+  transform: scale(1.03);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-3);
+  padding: var(--space-4);
+  flex: 1;
 }
 
-.links .link {
-  text-decoration: none;
-}
-
-.links .link:hover,
-.links .link:focus-visible {
-  text-decoration: underline;
+/* ------------------------------------------------------------ text */
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
 }
 
 .title {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
 }
 
 .description {
   font-size: 0.875rem;
+  line-height: 1.55;
   color: var(--color-text-secondary);
-  margin: 0 0 var(--space-2);
+  margin: 0;
+}
+
+.liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-accent);
+  border: 0.5px solid rgba(92, 225, 198, 0.35);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* ------------------------------------------------------------ facts */
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin: 0;
+  padding-block: var(--space-3);
+  border-block: 0.5px solid var(--color-border);
+}
+
+.fact {
+  min-width: 0;
+}
+
+.factValue {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.factLabel {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+/* ------------------------------------------------------------ tags (same chip as Skills) */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  border: 0.5px solid var(--color-border-strong);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+/* ------------------------------------------------------------ actions */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-1);
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  white-space: nowrap;
+  transition:
+    filter var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.primary:hover {
+  filter: brightness(1.08);
+}
+
+.secondary {
+  border: 0.5px solid var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.secondary:hover {
+  border-color: var(--color-text-muted);
+}
+
+/* ------------------------------------------------------------ compact card */
+.compact {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+}
+
+.compactText {
+  display: grid;
+  gap: var(--space-1);
 }
 
 .status {
@@ -61,8 +211,13 @@ a.card:hover,
   color: var(--color-text-muted);
 }
 
-.link {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-accent);
+@media (max-width: 720px) {
+  .compact {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .compact .secondary {
+    justify-self: start;
+  }
 }

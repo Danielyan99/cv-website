@@ -23,5 +23,5 @@ export const stats: Stat[] = [
     countTo: 100,
     suffix: "k+",
   },
-  { value: "~4wks → ~1wk", label: "per game, after my AI workflow setup" },
+  { value: "AI-first", label: "daily workflow with Claude Code agents" },
 ];

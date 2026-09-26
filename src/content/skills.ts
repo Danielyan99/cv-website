@@ -13,6 +13,7 @@ export const skillGroups: SkillGroup[] = [
       "Next.js",
       "Vue.js (Vuex)",
       "Redux Toolkit",
+      "React Query",
       "Recoil",
       "SCSS",
       "Bootstrap",
@@ -29,5 +30,9 @@ export const skillGroups: SkillGroup[] = [
   {
     label: "AI workflow",
     items: ["Claude Code", "Jira automation", "GitLab automation"],
+  },
+  {
+    label: "Build & delivery",
+    items: ["Webpack", "Git", "CI/CD (GitHub Actions)"],
   },
 ];

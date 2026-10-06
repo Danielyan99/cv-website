@@ -1,7 +1,6 @@
 .frame {
   background:
-    radial-gradient(120% 90% at 0% 0%, rgba(92, 225, 198, 0.08), transparent 60%),
-    #0e1115;
+    radial-gradient(120% 90% at 0% 0%, rgba(92, 225, 198, 0.08), transparent 60%), #0e1115;
   border-bottom: 0.5px solid var(--color-border);
   overflow: hidden;
 }
@@ -97,4 +96,22 @@
 
 .c4 {
   fill: #d95926;
+}
+
+/* Coachdesk status colours (on track / at risk / behind). */
+.onTrack {
+  fill: var(--color-accent);
+}
+
+.atRisk {
+  fill: #e0a33a;
+}
+
+.behind {
+  fill: #f17c7c;
+}
+
+.statusText {
+  fill: var(--color-text-secondary);
+  font: 500 9.5px var(--font-sans);
 }

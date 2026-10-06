@@ -8,6 +8,25 @@
   gap: var(--space-4);
 }
 
+/* An odd last featured card (e.g. the 3rd of 3) spans the row as a wide card: preview left, text right. */
+@media (min-width: 720px) {
+  .featuredGrid > :last-child:nth-child(odd):not(:only-child) {
+    grid-column: 1 / -1;
+  }
+
+  .featuredGrid > :last-child:nth-child(odd):not(:only-child) .featured {
+    flex-direction: row;
+  }
+
+  .featuredGrid > :last-child:nth-child(odd):not(:only-child) .featured > :first-child {
+    flex: 0 0 50%;
+    display: flex;
+    align-items: center;
+    border-bottom: 0;
+    border-right: 0.5px solid var(--color-border);
+  }
+}
+
 .otherGrid {
   display: grid;
   gap: var(--space-3);

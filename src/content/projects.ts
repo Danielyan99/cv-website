@@ -15,7 +15,7 @@ export interface Project {
   tags: string[];
   /** Featured projects get a large card with a drawn preview and two key facts. */
   featured?: {
-    preview: "scoreboard" | "ledger";
+    preview: "scoreboard" | "ledger" | "coach";
     facts: [ProjectFact, ProjectFact];
   };
 }
@@ -50,6 +50,22 @@ export const projects: Project[] = [
       facts: [
         { value: "87%", label: "of the sample sorted by rules, no AI" },
         { value: "1 call", label: "to the LLM per statement, each merchant once" },
+      ],
+    },
+  },
+  {
+    id: "coachdesk",
+    title: "Coachdesk: trainer client management",
+    description:
+      "Personal trainers build weekly workout and meal plans; clients tick them off on their phone. One dashboard shows who is on track.",
+    url: "https://github.com/Danielyan99/coachdesk",
+    demoUrl: "https://coachdesk-lyart.vercel.app",
+    tags: ["NestJS", "MongoDB", "React", "TypeScript", "Zod"],
+    featured: {
+      preview: "coach",
+      facts: [
+        { value: "24 h", label: "private demo per visitor, deleted by MongoDB TTL" },
+        { value: "119", label: "tests, incl. time zones and data isolation" },
       ],
     },
   },

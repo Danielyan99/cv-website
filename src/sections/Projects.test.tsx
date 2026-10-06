@@ -16,7 +16,10 @@ describe("Projects", () => {
     expect(withDemo.length).toBeGreaterThan(0);
     for (const project of withDemo) {
       const inCard = within(card(project.title));
-      expect(inCard.getByRole("link", { name: "Live demo ↗" })).toHaveAttribute("href", project.demoUrl);
+      expect(inCard.getByRole("link", { name: "Live demo ↗" })).toHaveAttribute(
+        "href",
+        project.demoUrl,
+      );
       expect(inCard.getByRole("link", { name: "GitHub ↗" })).toHaveAttribute("href", project.url);
       expect(inCard.getByText("Live")).toBeInTheDocument();
     }
@@ -32,7 +35,11 @@ describe("Projects", () => {
         expect(inCard.getByText(fact.label)).toBeInTheDocument();
       }
       const stack = inCard.getByRole("list", { name: "Tech stack" });
-      expect(within(stack).getAllByRole("listitem").map((li) => li.textContent)).toEqual(project.tags);
+      expect(
+        within(stack)
+          .getAllByRole("listitem")
+          .map((li) => li.textContent),
+      ).toEqual(project.tags);
     }
   });
 

@@ -17,6 +17,10 @@ concurrency:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      # Umami Cloud website ID, set under Settings → Secrets and variables →
+      # Actions → Variables. Analytics stay off while it's empty.
+      VITE_UMAMI_WEBSITE_ID: ${{ vars.UMAMI_WEBSITE_ID }}
     steps:
       - uses: actions/checkout@v4
 

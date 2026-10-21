@@ -26,6 +26,31 @@ End-to-end tests (`npm run test:e2e`) need Playwright's browser binaries
 `vite preview`. They run automatically in CI; a large binary download makes
 them unreliable in some sandboxed local environments.
 
+## Analytics
+
+Visits and key clicks are tracked with [Umami Cloud](https://umami.is):
+cookie-free, so no consent banner. Code: `src/lib/analytics.ts`.
+
+- **Setup:** set the repo variable `UMAMI_WEBSITE_ID` (Settings → Secrets and
+  variables → Actions → Variables). Without it, nothing is loaded.
+- Only counts on `danielyan99.github.io`, never in dev, preview or CI.
+- Events: `cv_download`, `email_click`, `social_click`, `project_click`,
+  `experience_expand`, `section_view` (each with properties, see
+  `AnalyticsEvents`). Calls are no-ops when Umami is blocked.
+
+### Tracking links
+
+Send each company its own link, then check Umami's UTM report:
+
+```
+https://danielyan99.github.io/cv-website/?utm_source=<company>&utm_medium=application&utm_campaign=<role>
+```
+
+Example: `?utm_source=bairesdev&utm_medium=application&utm_campaign=react-dev`
+
+To keep your own visits out of the stats, follow Umami's "Exclude my own
+visits" guide in each browser you use.
+
 ## Structure
 
 - `src/content/` — CV text and data, kept separate from markup

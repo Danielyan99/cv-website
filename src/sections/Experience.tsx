@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Reveal } from "../components/Reveal";
 import { experience, type Role } from "../content/experience";
+import { track } from "../lib/analytics";
 import styles from "./Experience.module.css";
 
 function RoleCard({ role, delay }: { role: Role; delay: number }) {
@@ -36,7 +37,11 @@ function RoleCard({ role, delay }: { role: Role; delay: number }) {
           className={styles.toggle}
           aria-expanded={expanded}
           aria-controls={detailsId}
-          onClick={() => setExpanded((value) => !value)}
+          onClick={() => {
+            const next = !expanded;
+            setExpanded(next);
+            track("experience_expand", { role: role.id, expanded: next });
+          }}
         >
           {expanded ? "Hide details" : "Show details"}
         </button>

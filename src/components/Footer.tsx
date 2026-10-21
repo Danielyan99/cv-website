@@ -1,4 +1,5 @@
 import { profile } from "../content/profile";
+import { track } from "../lib/analytics";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -8,17 +9,32 @@ export function Footer() {
         <span>{profile.location}</span>
         <ul className={styles.links}>
           <li>
-            <a href={profile.github} target="_blank" rel="noreferrer">
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("social_click", { network: "github", location: "footer" })}
+            >
               GitHub
             </a>
           </li>
           <li>
-            <a href={profile.linkedin} target="_blank" rel="noreferrer">
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("social_click", { network: "linkedin", location: "footer" })}
+            >
               LinkedIn
             </a>
           </li>
           <li>
-            <a href={`mailto:${profile.email}`}>Email</a>
+            <a
+              href={`mailto:${profile.email}`}
+              onClick={() => track("email_click", { location: "footer" })}
+            >
+              Email
+            </a>
           </li>
         </ul>
       </div>

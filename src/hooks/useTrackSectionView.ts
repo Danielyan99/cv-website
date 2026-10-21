@@ -9,7 +9,9 @@ type Section = AnalyticsEvents["section_view"]["section"];
  * view. Attach the returned ref to the section element.
  */
 export function useTrackSectionView<T extends HTMLElement>(section: Section) {
-  const { ref, inView } = useInView<T>(0.3);
+  // Keep the threshold low: on small phones Projects is ~3.5 screens tall,
+  // so a higher ratio (e.g. 0.3) could never be reached and never fire.
+  const { ref, inView } = useInView<T>(0.15);
   const sent = useRef(false);
 
   useEffect(() => {

@@ -11,7 +11,10 @@ export function WorkWithMe() {
   return (
     <section
       ref={sectionRef}
-      id="work" className={`container ${styles.section}`} aria-labelledby="work-heading">
+      id="work"
+      className={`container ${styles.section}`}
+      aria-labelledby="work-heading"
+    >
       <h2 id="work-heading" className="kicker">
         Work with me
       </h2>

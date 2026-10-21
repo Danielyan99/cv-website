@@ -117,12 +117,12 @@ function CompactCard({ project }: { project: Project }) {
       <Tags tags={project.tags} />
       {project.url ? (
         <a
-              className={styles.secondary}
-              href={project.url}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => track("project_click", { project: project.id, link: "github" })}
-            >
+          className={styles.secondary}
+          href={project.url}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => track("project_click", { project: project.id, link: "github" })}
+        >
           GitHub ↗
         </a>
       ) : (

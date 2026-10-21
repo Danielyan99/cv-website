@@ -1,5 +1,10 @@
 import { expect, test } from "@playwright/test";
 
+// Never send analytics from tests, even if a website ID is set in CI.
+test.beforeEach(async ({ page }) => {
+  await page.route("https://cloud.umami.is/**", (route) => route.abort());
+});
+
 test("loads with the right title and hero content", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle(/Narek Danielyan/);
@@ -35,4 +40,11 @@ test("work with me links to a real email address", async ({ page }) => {
   await page.goto("/");
   const bookACall = page.getByRole("link", { name: "Book a call" });
   await expect(bookACall).toHaveAttribute("href", /^mailto:danielyan\.narek99@gmail\.com/);
+});
+
+test("download CV opens the PDF in a new tab", async ({ page }) => {
+  await page.goto("/");
+  const cv = page.getByRole("link", { name: "Download CV" });
+  await expect(cv).toHaveAttribute("href", /resume\.pdf$/);
+  await expect(cv).toHaveAttribute("target", "_blank");
 });

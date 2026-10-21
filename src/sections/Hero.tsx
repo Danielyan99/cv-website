@@ -2,6 +2,7 @@ import { Reveal } from "../components/Reveal";
 import { hero, stats, type Stat } from "../content/hero";
 import { useCountUp } from "../hooks/useCountUp";
 import { useReducedMotion } from "../hooks/useReducedMotion";
+import { track } from "../lib/analytics";
 import { assetUrl } from "../lib/assetUrl";
 import styles from "./Hero.module.css";
 
@@ -38,7 +39,13 @@ export function Hero() {
       <p className={styles.summary}>{hero.summary}</p>
       <p className={styles.availability}>{hero.availability}</p>
       <div className={styles.actions}>
-        <a href={assetUrl("resume.pdf")} className={styles.buttonPrimary}>
+        <a
+          href={assetUrl("resume.pdf")}
+          className={styles.buttonPrimary}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => track("cv_download", { location: "hero" })}
+        >
           Download CV
         </a>
         <a href="#contact" className={styles.buttonSecondary}>

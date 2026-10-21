@@ -1,14 +1,18 @@
 import { ProjectPreview } from "../components/ProjectPreview";
 import { Reveal } from "../components/Reveal";
 import { projects, type Project } from "../content/projects";
+import { useTrackSectionView } from "../hooks/useTrackSectionView";
+import { track } from "../lib/analytics";
 import styles from "./Projects.module.css";
 
 export function Projects() {
   const featured = projects.filter((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
+  const sectionRef = useTrackSectionView<HTMLElement>("projects");
 
   return (
     <section
+      ref={sectionRef}
       id="projects"
       className={`container ${styles.section}`}
       aria-labelledby="projects-heading"
@@ -76,12 +80,24 @@ function FeaturedCard({ project }: { project: Project }) {
         <Tags tags={project.tags} />
         <div className={styles.actions}>
           {project.demoUrl && (
-            <a className={styles.primary} href={project.demoUrl} target="_blank" rel="noreferrer">
+            <a
+              className={styles.primary}
+              href={project.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("project_click", { project: project.id, link: "demo" })}
+            >
               Live demo ↗
             </a>
           )}
           {project.url && (
-            <a className={styles.secondary} href={project.url} target="_blank" rel="noreferrer">
+            <a
+              className={styles.secondary}
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("project_click", { project: project.id, link: "github" })}
+            >
               GitHub ↗
             </a>
           )}
@@ -100,7 +116,13 @@ function CompactCard({ project }: { project: Project }) {
       </div>
       <Tags tags={project.tags} />
       {project.url ? (
-        <a className={styles.secondary} href={project.url} target="_blank" rel="noreferrer">
+        <a
+          className={styles.secondary}
+          href={project.url}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => track("project_click", { project: project.id, link: "github" })}
+        >
           GitHub ↗
         </a>
       ) : (

@@ -1,11 +1,20 @@
 import { Reveal } from "../components/Reveal";
 import { profile } from "../content/profile";
 import { services } from "../content/services";
+import { useTrackSectionView } from "../hooks/useTrackSectionView";
+import { track } from "../lib/analytics";
 import styles from "./WorkWithMe.module.css";
 
 export function WorkWithMe() {
+  const sectionRef = useTrackSectionView<HTMLElement>("work_with_me");
+
   return (
-    <section id="work" className={`container ${styles.section}`} aria-labelledby="work-heading">
+    <section
+      ref={sectionRef}
+      id="work"
+      className={`container ${styles.section}`}
+      aria-labelledby="work-heading"
+    >
       <h2 id="work-heading" className="kicker">
         Work with me
       </h2>
@@ -25,6 +34,7 @@ export function WorkWithMe() {
           <a
             className={styles.button}
             href={`mailto:${profile.email}?subject=${encodeURIComponent("Let's work together")}`}
+            onClick={() => track("email_click", { location: "work_with_me" })}
           >
             Book a call
           </a>
